@@ -5,16 +5,14 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
-/ Array of special characters to be included in password
+
+// Array of special characters to be included in password
 var specialCharacters = [
   '@',
   '%',
@@ -102,34 +100,31 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ];
-//choose the character function//
 
-var Character = function() {
-  // Ask user for the number of characters
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+//on click user choice//
+var onclickCharacter = function() {
   var userChoice = prompt("How many number of characters in the passcode");
-  
+  console.log(userChoice);
 
-  //choose the uppercase function//
+  //ask the user for uppercase//
+    var userchoiceuppercase = prompt("Do you want to include uppercase in your passcode");
+    console.log(userchoiceuppercase);
 
-  var uppercase = function() {
-    // Ask user for the number of characters
-    var userchooseuppercase = prompt("Do you want to include uppercase in your passcode");
-  
-
-  //choose the lowerlast funtion//
-
-  var lowercase = function() {
-    // Ask user for the number of characters
-    var userchooseloswercase = prompt("Do you want to include lowercase in your passcode");
-  
+  //ask the user for lowercase//
+    var userchoiceloswercase = prompt("Do you want to include lowercase in your passcode");
+    console.log(userchoiceloswercase);
 
 
-  //choose the symbol funtion//
-  var special = function() {
-    // Ask user for the number of characters
-    var userchoosespecial = prompt("Do you want to include special characters in your passcode");
-  
-
+    //ask user for special character
+    var userchoisespecial = prompt("Do you want to include special characters in your passcode");
+    console.log(userchoisespecial);
+  }
   // Get random index from array of options
-  var index = Math.floor(Math.random() * options.length);
-  var generatePassword = options[index];
+ // var index = Math.floor(Math.random() * options.length);
+ // var generatePassword = options[index];
+
+  //console.log("scriptloaded")
