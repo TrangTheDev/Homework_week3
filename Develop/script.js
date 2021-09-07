@@ -115,13 +115,13 @@ var generatePasswordClick = function() {
   console.log(userChoice);
 
   if (userChoice >= 8 && userChoice <= 128) {
-    
+    console.log(userChoice);
     //ask the user for uppercase//
-    userChoiceUpperCase = confirm("Do you want to include uppercase in your passcode");
+    userChoiceUpperCase = confirm("Do you want to include uppercase characters in your passcode");
     console.log(userChoiceUpperCase);
 
     //ask the user for lowercase//
-    userChoiceLowerCase = confirm("Do you want to include lowercase in your passcode");
+    userChoiceLowerCase = confirm("Do you want to include lowercase characters in your passcode");
     console.log(userChoiceLowerCase);
 
     //ask user for special character
@@ -132,28 +132,35 @@ var generatePasswordClick = function() {
     userChoiceNumeric = confirm("Do you want to include numeric characters in your passcode");
     console.log(userChoiceNumeric);
     
-
-    //More Questions here
-
     writePassword();
-  } else {
+    } else {
     alert("Invalid character length entered");
+       
   }
 
-   //More Questions here
 
+
+ 
 }
 
 
-//reference from https://www.w3schools.com/js/js_random.asp//
+
+
+
+//randomise passcode - reference from https://www.w3schools.com/js/js_random.asp//
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function generatePassword() {
+
+     //0 true statement
+  if (!userChoiceUpperCase && !userChoiceLowerCase && !userChoiceSpecial && !userChoiceNumeric)  {
+  return(alert="You need to choose at least one criteria")}
+
   
   //4 true statement// 
-  if (userChoiceUpperCase && userChoiceLowerCase && userChoiceSpecial && userChoiceNumeric) {
+  else if (userChoiceUpperCase && userChoiceLowerCase && userChoiceSpecial && userChoiceNumeric) {
     userEndChoice = lowerCasedCharacters.concat(upperCasedCharacters, specialCharacters, numericCharacters)
   } 
 
@@ -162,41 +169,41 @@ function generatePassword() {
     userEndChoice = lowerCasedCharacters.concat(upperCasedCharacters, specialCharacters)
   } 
   
-  else if (userChoiceUpperCase && userChoiceLowerCase && userChoiceNumeric){
+  else if (userChoiceUpperCase && userChoiceLowerCase && userChoiceNumeric) {
     userEndChoice = upperCasedCharacters.concat(lowerCasedCharacters,numericCharacters);
   }
 
-  else if (userChoiceNumeric && userChoiceLowerCase &&  userChoiceSpecial){
+  else if (userChoiceNumeric && userChoiceLowerCase &&  userChoiceSpecial) {
     userEndChoice = upperCasedCharacters.concat(lowerCasedCharacters,specialCharacters);
   }
 
-  else if (userChoiceNumeric && userChoiceLowerCase &&  userChoiceSpecial){
+  else if (userChoiceNumeric && userChoiceLowerCase &&  userChoiceSpecial) {
     userEndChoice = numericCharacters.concat(lowerCasedCharacters,specialCharacters);
   }
 
-  else if (userChoiceNumeric && userChoiceUpperCase && userChoiceSpecial){
+  else if (userChoiceNumeric && userChoiceUpperCase && userChoiceSpecial) {
     userEndChoice = numericCharacters.concat(upperCasedCharacters,specialCharacters);
   }
 
   //2 true outcome//
 
-  else if (userChoiceNumeric && userChoiceUpperCase){
+  else if (userChoiceNumeric && userChoiceUpperCase) {
     userEndChoice = numericCharacters.concat(upperCasedCharacters);
   }
 
-  else if (userChoiceNumeric && userChoiceLowerCase){
+  else if (userChoiceNumeric && userChoiceLowerCase) {
     userEndChoice = numericCharacters.concat(lowerCasedCharacters);
   }
 
- else if (userChoiceNumeric && userChoiceSpecial){
+ else if (userChoiceNumeric && userChoiceSpecial) {
     userEndChoice = numericCharacters.concat(specialCharacters);
   }
 
-  else if (userChoiceUpperCase && userChoiceLowerCase){
+  else if (userChoiceUpperCase && userChoiceLowerCase) {
     userEndChoice = upperCasedCharacters.concat(lowerCasedCharacters);
   }
 
-  else if (userChoiceUpperCase && userChoiceSpecial){
+  else if (userChoiceUpperCase && userChoiceSpecial) {
     userEndChoice = upperCasedCharacters.concat(specialCharacters);
   }
 
@@ -206,14 +213,19 @@ function generatePassword() {
 
   //1 true statement//
   else if (userChoiceNumeric) {
-  userEndChoice = numericCharacters
-  } else if (userChoiceUpperCase) {
-  userEndChoice = upperCasedCharacters} 
+    userEndChoice = numericCharacters
+  } 
+  else if (userChoiceUpperCase) {
+    userEndChoice = upperCasedCharacters
+  } 
   else if (userChoiceLowerCase){
-  userEndChoice = lowerCasedCharacters}
+    userEndChoice = lowerCasedCharacters
+  }
   else if (userChoiceSpecial){
-  userEndChoice = specialCharacters}
+    userEndChoice = specialCharacters
+  }
 
+  
 
   let password = "";
   for (let i = 0; i < userChoice; i++) {
@@ -229,23 +241,9 @@ function generatePassword() {
 generateBtn.addEventListener("click", generatePasswordClick);
 
 
-
-
-/*
- 
-
-
-
-
-
- 
-  }
 // JAvscript style guide: https://github.com/airbnb/javascript
 
 
 
-
-  //console.log("scriptloaded")
-*/
 
   
