@@ -138,8 +138,6 @@ var generatePasswordClick = function() {
        
   }
 
-
-
  
 }
 
