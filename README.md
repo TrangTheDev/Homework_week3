@@ -17,7 +17,7 @@ Below is a screen shot of the error if the user does not choose any criteria for
 
 ![no Criteria](No_criteria.PNG)
 
-The URL for the password generator is: 
+The URL for the password generator is: https://trangthedev.github.io/Password_Generator-/
 
 
 
